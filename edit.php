@@ -12,7 +12,7 @@ if (isset($_POST['make']) && isset($_POST['model']) && isset($_POST['year'])
     && isset($_POST['mileage'])) {
     
     if (strlen($_POST['make']) < 1 || strlen($_POST['model']) < 1 || strlen($_POST['year']) < 1 || strlen($_POST['mileage']) < 1) {
-        $_SESSION['error'] = 'All field id required';
+        $_SESSION['error'] = 'All values are required';
         header("Location: edit.php?autos_id=".$_REQUEST['autos_id']);
         return;
     }elseif (!is_numeric($_POST['year']) || !is_numeric($_POST['mileage'])) {

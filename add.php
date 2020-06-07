@@ -4,12 +4,11 @@
  if (!isset($_SESSION['name'])) {
  	die('ACCESS DENIED');
  }
- if (isset($_POST['cancel'])) {
- 	header("Location:index.php");
- }
+ 
  require_once "pdo.php";
 
- if (isset($_POST['make']) && isset($_POST['year']) && $_POST['mileage']) {
+ if (isset($_POST['make']) && isset($_POST['year']) && isset($_POST['mileage'])  && isset($_POST['model'])) {
+ 	echo "vayo";
 	   if (strlen($_POST['make']) < 1 || strlen($_POST['model']) < 1 || strlen($_POST['year']) < 1 || strlen($_POST['mileage']) < 1) {
 	   	    $_SESSION['error'] = "All values are required";
 	   	    header("Location:add.php");
@@ -44,7 +43,7 @@
  ?>
 
 
- <!DOCTYPE html>
+<!DOCTYPE html>
  <html>
  <head>
  	<meta charset="utf-8">
@@ -81,7 +80,8 @@
 				<input type="text" name="mileage" class="form-control" id="mileage" />
 		    </div>
 			<input type="submit" class="btn btn-default" value="Add">
-			<input type="submit" name="cancel" class="btn btn-default" value="cancel">
+			<a href="index.php" class="btn btn-default">Cancel</a>
+			
 
 	</form>
  	</div>
